@@ -7,7 +7,7 @@ jobs:
       - name: get the code
         uses: actions/checkout@v3
       - name: build the code
-        uses: skx/github-action-build@main
+        uses: skx/github-action-build@master
         with:
           builder: .github/build
   
