@@ -11,5 +11,6 @@ jobs:
       - name: Run build with Gradle Wrapper
         run: |
           chmod +x gradlew
+          gradle wrapper
           ./gradlew build
   
