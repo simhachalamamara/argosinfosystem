@@ -1,10 +1,10 @@
 name: deploytest
 on: workflow_dispatch
 jobs:
-  firstjob
-  runs-on: ubuntu-latest
-  steps:
-   - name: print greeting
-     run: |
-      echo "first project"
+  firstjob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print greeting
+        run: |
+          echo "first project"
   
