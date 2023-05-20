@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get the code
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: build the code
-      - uses: skx/github-action-build@main
+        uses: skx/github-action-build@main
         with:
           builder: .github/build
   
