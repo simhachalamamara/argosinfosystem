@@ -50,11 +50,11 @@ jobs:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '11'
       - name: cache dependency
-          uses: actions/cache@v3
-          with:
-            path: |
-              ~/.gradle/caches
-              ~/.gradle/wrapper
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
       - name: setup gradle
         uses: gradle/gradle-build-action@v2
       - name: Run build with Gradle Wrapper
