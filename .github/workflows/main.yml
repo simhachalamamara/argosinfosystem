@@ -22,7 +22,7 @@ jobs:
           ./gradlew build
       - name: get the fileName
         id: publish
-        run: find src/main/java/com/argosinfo/argosinfosystem/*.java -type f -execdir echo 'script-file={}'
+        run: find src/main/java/com/argosinfo/argosinfosystem/*.java -type f -execdir echo 'script-file={};'
       - name: Test application
         uses: gradle/gradle-build-action@v2
         with:
