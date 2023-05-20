@@ -37,4 +37,4 @@ jobs:
     needs: firstjob
     steps:
       - name: get the output value
-        run: echo "{{needs.firstjob.outputs.script-file}}"
+        run: echo "{{ needs.firstjob.outputs.script-file }}"
