@@ -16,6 +16,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
+	implementation 'org.codehaus.groovy:groovy:3.0.5'
+	testImplementation('org.spockframework:spock-core:2.0-M3-groovy-3.0')
+	testImplementation('org.spockframework:spock-spring:2.0-M3-groovy-3.0')
 }
 
 tasks.named('test') {
