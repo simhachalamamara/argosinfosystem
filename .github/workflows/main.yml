@@ -6,6 +6,11 @@ jobs:
     steps:
       - name: get the code
         uses: actions/checkout@v3
+      - name: java setup
+        uses: actions/setup-java@v3
+          with:
+            distribution: 'zulu' # See 'Supported distributions' for available options
+            java-version: '11'
       - name: setup gradle
         uses: gradle/gradle-build-action@v2
       - name: Run build with Gradle Wrapper
