@@ -14,4 +14,6 @@ jobs:
           gradle wrapper
           ./gradlew build
       - name: Test application
-        run: ./gradlew clean test  --info
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: test
