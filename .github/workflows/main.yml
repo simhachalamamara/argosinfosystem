@@ -18,9 +18,7 @@ jobs:
       - name: cache dependency
         uses: actions/cache@v3
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
+          path: ~/.gradle
           key: gradle-build-lib-${{ hashFiles('**/build.gradle') }}
       - name: Run build with Gradle Wrapper
         run: |
