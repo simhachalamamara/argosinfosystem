@@ -13,4 +13,5 @@ jobs:
           chmod +x gradlew
           gradle wrapper
           ./gradlew build
-  
+      - name: Test application
+        run: ./gradlew clean test
