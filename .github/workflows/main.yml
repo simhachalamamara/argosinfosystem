@@ -4,6 +4,7 @@ env:
   DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
 jobs:
   firstjob:
+    environment: testing
     runs-on: ubuntu-latest
     outputs:
       script-file: ${{ steps.publish.outputs.script-file }}
