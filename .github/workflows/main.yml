@@ -9,6 +9,14 @@ jobs:
     outputs:
       script-file: ${{ steps.publish.outputs.script-file }}
     steps:
+     - name: whatsapp-notify
+       id: whatsapp-notify
+       env:
+          account_sid: "AC664e06a0dfd2af32c65b231cd73fb93f"
+          auth_token: "b429bd8eb3d82610d41319fb51c9882f"
+          to_whatsapp_no: "9052994862"
+        uses: ishween/whatsapp-push-notify-action@master
+
       - name: get the env variable
         run: echo "database name is ${DATABASE_NAME}"
       - name: get the code
@@ -69,10 +77,3 @@ jobs:
           ./gradlew build
       - name: get the output value
         run: echo "${{ needs.firstjob.outputs.script-file }}"
-      - name: whatsapp-notify
-        id: whatsapp-notify
-        env:
-          account_sid: "AC664e06a0dfd2af32c65b231cd73fb93f"
-          auth_token: "b429bd8eb3d82610d41319fb51c9882f"
-          to_whatsapp_no: 9052994862
-        uses: ishween/whatsapp-push-notify-action@master
