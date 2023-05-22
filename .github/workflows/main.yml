@@ -1,7 +1,7 @@
 name: deploytest
 on: workflow_dispatch
 env:
-  DATABASE_NAME: "PGAdmin"
+  DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
 jobs:
   firstjob:
     runs-on: ubuntu-latest
