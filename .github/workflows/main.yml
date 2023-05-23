@@ -62,7 +62,7 @@ jobs:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '112'
       - name: cache dependency
-        if: failure() && steps.java_steps.output == 'failure'
+        if: failure() && steps.java_steps.outcome == 'failure'
         uses: actions/cache@v3
         with:
           path: |
