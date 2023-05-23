@@ -51,7 +51,6 @@ jobs:
 #          name: my-artifact
 #          path: build
   second-job:
-    needs: firstjob
     runs-on: ubuntu-latest
     steps:
       - name: get the code
