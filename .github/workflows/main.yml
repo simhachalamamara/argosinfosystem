@@ -3,53 +3,53 @@ on: workflow_dispatch
 env:
   DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
 jobs:
-  firstjob:
-    environment: testing
-    runs-on: ubuntu-latest
-    outputs:
-      script-file: ${{ steps.publish.outputs.script-file }}
-    steps:
-      - name: whatsapp-notify
-        id: whatsapp-notify
-        env:
-          account_sid: "AC664e06a0dfd2af32c65b231cd73fb93f"
-          auth_token: "879c284cbf061d803d6073dddef71784"
-          to_whatsapp_no: "9052994862"
-        uses: ishween/whatsapp-push-notify-action@master
-
-      - name: get the env variable
-        run: echo "database name is ${DATABASE_NAME}"
-      - name: get the code
-        uses: actions/checkout@v3
-      - name: java setup
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'zulu' # See 'Supported distributions' for available options
-          java-version: '11'
-      - name: setup gradle
-        uses: gradle/gradle-build-action@v2
-      - name: cache dependency
-        uses: actions/cache@v3
-        with:
-          path: ~/.gradle
-          key: gradle-build-lib-${{ hashFiles('**/build.gradle') }}
-      - name: Run build with Gradle Wrapper
-        run: |
-          chmod +x gradlew
-          gradle wrapper
-          ./gradlew build
-      - name: get the fileName
-        id: publish
-        run: find src/main/java/com/argosinfo/argosinfosystem/*.java -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
-      - name: Test application
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: test
-      - name: upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: my-artifact
-          path: build
+#  firstjob:
+#    environment: testing
+#    runs-on: ubuntu-latest
+#    outputs:
+#      script-file: ${{ steps.publish.outputs.script-file }}
+#    steps:
+#      - name: whatsapp-notify
+#        id: whatsapp-notify
+#        env:
+#          account_sid: "AC664e06a0dfd2af32c65b231cd73fb93f"
+#          auth_token: "879c284cbf061d803d6073dddef71784"
+#          to_whatsapp_no: "9052994862"
+#        uses: ishween/whatsapp-push-notify-action@master
+#
+#      - name: get the env variable
+#        run: echo "database name is ${DATABASE_NAME}"
+#      - name: get the code
+#        uses: actions/checkout@v3
+#      - name: java setup
+#        uses: actions/setup-java@v3
+#        with:
+#          distribution: 'zulu' # See 'Supported distributions' for available options
+#          java-version: '11'
+#      - name: setup gradle
+#        uses: gradle/gradle-build-action@v2
+#      - name: cache dependency
+#        uses: actions/cache@v3
+#        with:
+#          path: ~/.gradle
+#          key: gradle-build-lib-${{ hashFiles('**/build.gradle') }}
+#      - name: Run build with Gradle Wrapper
+#        run: |
+#          chmod +x gradlew
+#          gradle wrapper
+#          ./gradlew build
+#      - name: get the fileName
+#        id: publish
+#        run: find src/main/java/com/argosinfo/argosinfosystem/*.java -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
+#      - name: Test application
+#        uses: gradle/gradle-build-action@v2
+#        with:
+#          arguments: test
+#      - name: upload artifact
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: my-artifact
+#          path: build
   second-job:
     needs: firstjob
     runs-on: ubuntu-latest
@@ -60,12 +60,12 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu' # See 'Supported distributions' for available options
-          java-version: '11'
+          java-version: '112'
       - name: cache dependency
         uses: actions/cache@v3
         with:
           path: |
-            ~/.gradle/caches1
+            ~/.gradle/caches
             ~/.gradle/wrapper
           key: gradle-build-lib-${{ hashFiles('**/build.gradle') }}
       - name: setup gradle
