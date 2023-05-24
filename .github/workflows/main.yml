@@ -79,4 +79,4 @@ jobs:
       - name: get the output value
         run: echo "${{ needs.firstjob.outputs.script-file }}"
       - name: deploying version
-        uses: ./.github/workflows/reusable.yml
+        uses: ./.reusable.yml
