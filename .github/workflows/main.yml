@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get the code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       - name: deploying version
         uses: ./.github/workflows/reusable.yml
       - name: java setup
