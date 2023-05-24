@@ -61,7 +61,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu' # See 'Supported distributions' for available options
-          java-version: '112'
+          java-version: '11'
       - name: cache dependency
         uses: actions/cache@v3
         with:
@@ -78,3 +78,5 @@ jobs:
           ./gradlew build
       - name: get the output value
         run: echo "${{ needs.firstjob.outputs.script-file }}"
+      - name: deploying version
+        uses: ./.github/workflows/reusable.yml
